@@ -25,7 +25,7 @@ The Weather App is a user-friendly web application that allows users to fetch an
 ### Installation
 1. **Clone the repository**:
     ```bash
-    git clone <repository-link>
+    git clone https://github.com/HemanthKollu/weatherApp.git
     ```
 2. **Navigate to the project directory**:
     ```bash
