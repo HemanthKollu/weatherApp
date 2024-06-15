@@ -1,70 +1,106 @@
-# Getting Started with Create React App
+# Weather App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Description
+The Weather App is a user-friendly web application that allows users to fetch and display current weather information based on their input. Users can search for weather data by city name. The application dynamically updates the UI based on the weather conditions and displays additional information such as temperature, humidity, and wind speed.
 
-## Available Scripts
+## Features
+- Display current weather information
+- Search weather by city name
+- Dynamically update Icons based on weather conditions
+- Show additional weather information such as humidity, wind speed, and description
+- Handle errors gracefully and provide feedback to users
 
-In the project directory, you can run:
+## Technologies Used
+- React
+- Fetch API
+- CSS
+- React Icons
+- DateFormat
 
-### `npm start`
+## Setup Instructions
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Prerequisites
+- Node.js and npm installed on your local machine
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Installation
+1. **Clone the repository**:
+    ```bash
+    git clone <repository-link>
+    ```
+2. **Navigate to the project directory**:
+    ```bash
+    cd weather-app
+    ```
+3. **Install dependencies**:
+    ```bash
+    npm install
+    ```
+4. **Start the development server**:
+    ```bash
+    npm start
+    ```
 
-### `npm test`
+### Project Structure
+src/
+├── api.js
+├── App.js
+├── Components/
+│ ├── Icons/
+│ │ ├── index.js
+│ ├── WeatherApp/
+│ │ ├── index.js
+│ │ └── index.css
+├── Assets/
+│ ├── Icons/
+│ │ ├── cloud.png
+│ │ ├── fog (1).png
+│ │ ├── fog (2).png
+│ │ ├── rain.png
+│ │ ├── snow.png
+│ │ ├── storm.png
+│ │ ├── sun.png
+│ │ └── windy.png
+└── index.css
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Components
 
-### `npm run build`
+# Icons Component (/Components/Icons/index.js):
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Purpose: The Icons component is responsible for dynamically rendering weather icons based on the weather data passed as props. It utilizes React's useState and useEffect hooks to manage state and update the displayed icon when the weatherData prop changes. The component imports various weather icons from local assets (Clear, Fog, Rain, Snow, Storm, Wind, Clouds, Haze) and selects the appropriate icon based on the main property of the weatherData object. If no matching weather condition is found, it defaults to null.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# WeatherApp Component (/Components/WeatherApp/index.js):
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Purpose: The WeatherApp component is the core component of the Weather App built using React. It provides a user interface for users to enter a city name and fetch current weather information using the OpenWeather API. The component includes input fields for city name entry, a search button to initiate data fetching, and dynamically updates the UI to display weather details when data is retrieved successfully.
 
-### `npm run eject`
+* Key Features:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+    City Search: Users can input a city name to fetch current weather data.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+    Weather Information Display: Displays detailed weather information including temperature, weather description, feels like temperature, wind speed, and direction.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+    Date and Time: Automatically updates to show the current date and time when weather data is fetched.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+    Error Handling: Alerts users with an error message if the city name is invalid or if there are network issues during data fetching.
 
-## Learn More
+    Responsive Design: Designed to ensure a consistent and user-friendly experience across various screen sizes and devices.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+# api.js file:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+The api.js file provides a function fetchWeatherData that facilitates fetching weather information from the OpenWeatherMap API. It uses an asynchronous approach to make HTTP requests and handles responses to retrieve weather data based on a provided city name.
 
-### Code Splitting
+API_KEY: Holds a constant representing the API key required for accessing the OpenWeatherMap API. This key is essential for authenticating and authorizing requests.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+BASE_URL: Defines the base URL of the OpenWeatherMap API endpoint (https://api.openweathermap.org/data/2.5/weather). This endpoint is where requests are sent to retrieve weather data.
 
-### Analyzing the Bundle Size
+fetchWeatherData(city): An asynchronous function that takes a city parameter. It constructs a URL with the city name and API key embedded to query the OpenWeatherMap API for weather data in metric units (Celsius).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Uses the fetch API to make a GET request to the constructed URL.
 
-### Making a Progressive Web App
+Checks if the response is successful (response.ok). If not, it throws an error.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Parses the JSON response and returns the weather data object containing various weather parameters such as temperature, humidity, wind speed, and weather description.
 
-### Advanced Configuration
+Catches and logs any errors that occur during the API call, providing robust error handling for network or API-related issues.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Purpose:
+The purpose of api.js is to encapsulate the logic for interacting with the OpenWeatherMap API. By centralizing this functionality into a single module, it promotes code reusability and maintainability within the application. This separation of concerns allows components or other parts of the application to easily integrate weather data without duplicating API handling logic.

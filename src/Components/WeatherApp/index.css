@@ -1,0 +1,131 @@
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+}
+.weathersearchContainer {
+  background: linear-gradient(108deg, #821ea9, #7c43e0);
+  box-shadow: 4px 4px 15px 0px rgba(0, 0, 0, 0.2);
+  width: 400px;
+  padding: 25px;
+  color: #e5e5e5;
+  border-radius: 10px;
+  margin-top: 20px;
+  height: 100vh;
+}
+@media screen and (max-width: 399px){
+    .weathersearchContainer{
+        width: 100vh;
+        height: 100vh;
+    }
+}
+.header {
+  text-align: center;
+}
+.input-container {
+  display: flex;
+}
+.cityInput {
+  width: 80%;
+  height: 40px;
+  outline: none;
+  border: none;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  padding-left: 10px;
+  color: #000000;
+  font-weight: bold;
+}
+@media screen and (max-width: 399px){
+    .cityInput{
+        width: 80%;
+    }
+    .btn{
+        padding: 0.4rem 0.8rem 04rem 0.8rem;
+    }
+    .search-icon{
+        size: 10;
+    }
+}
+.btn {
+  padding: 0.6rem 1.5rem 0.7rem 1.5rem;
+  border: none;
+  cursor: pointer;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  background-color: #000000c5;
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(262deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.4));
+  margin-top: 10px;
+  border-radius: 10px;
+}
+.not-found-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(262deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.4));
+  margin-top: 10px;
+  border-radius: 10px;
+  text-align: center;
+}
+.location-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.city-name {
+  font-size: 28px;
+  margin-left: 10px;
+}
+.country-code {
+  font-size: 15px;
+}
+.date-time {
+  margin-top: -10px;
+}
+.weather-description {
+  font-weight: 600;
+  font-size: 20px;
+}
+.temperature {
+  font-size: 60px;
+  margin-top: -10px;
+}
+.temp-deg {
+  font-size: 40px;
+}
+.feels-like {
+  font-size: 24px;
+  margin-top: -20px;
+}
+.feelsLike-deg {
+  font-size: 20px;
+}
+.windStatus {
+  padding: 0px 20px;
+  background: rgba(0, 0, 0, 0.3);
+  margin-bottom: 20px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.wind-text {
+  margin-left: 15px;
+}
+.not-found {
+  font-weight: 600;
+  font-size: 20px;
+}
+@media screen and (max-width: 480px){
+    .weathersearchContainer{
+        width: 350px;
+    }
+}
